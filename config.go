@@ -12,13 +12,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kaspanet/kaspad/infrastructure/config"
+	"github.com/Kash-Protocol/kashd/infrastructure/config"
 
-	"github.com/kaspanet/dnsseeder/version"
+	"github.com/Kash-Protocol/dnsseeder/version"
 	"github.com/pkg/errors"
 
-	"github.com/jessevdk/go-flags"
-	"github.com/kaspanet/kaspad/util"
+	"github.com/Kash-Protocol/kashd/util"
 )
 
 const (
@@ -172,7 +171,7 @@ func loadConfig() (*ConfigFlags, error) {
 		return nil, err
 	}
 
-	// Manually enforce testnet 11 net params so we do not have to 
+	// Manually enforce testnet 11 net params so we do not have to
 	// support this special network in kaspad.
 	if activeConfig.NetSuffix != 0 {
 		if !activeConfig.Testnet {
@@ -181,8 +180,8 @@ func loadConfig() (*ConfigFlags, error) {
 		if activeConfig.NetSuffix != 11 {
 			return nil, errors.New("The only supported explicit testnet net suffix is 11")
 		}
-		activeConfig.NetParams().DefaultPort = "16311";
-		activeConfig.NetParams().Name = "kaspa-testnet-11";
+		activeConfig.NetParams().DefaultPort = "16311"
+		activeConfig.NetParams().Name = "kaspa-testnet-11"
 	}
 
 	activeConfig.AppDir = cleanAndExpandPath(activeConfig.AppDir)

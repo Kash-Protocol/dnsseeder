@@ -14,19 +14,19 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kaspanet/kaspad/app/protocol/common"
-	"github.com/kaspanet/kaspad/infrastructure/config"
-	"github.com/kaspanet/kaspad/infrastructure/network/netadapter/standalone"
+	"github.com/Kash-Protocol/kashd/app/protocol/common"
+	"github.com/Kash-Protocol/kashd/infrastructure/config"
+	"github.com/Kash-Protocol/kashd/infrastructure/network/netadapter/standalone"
 
 	"github.com/pkg/errors"
 
-	"github.com/kaspanet/dnsseeder/version"
-	"github.com/kaspanet/kaspad/infrastructure/network/dnsseed"
-	"github.com/kaspanet/kaspad/util/panics"
-	"github.com/kaspanet/kaspad/util/profiling"
+	"github.com/Kash-Protocol/dnsseeder/version"
+	"github.com/Kash-Protocol/kashd/infrastructure/network/dnsseed"
+	"github.com/Kash-Protocol/kashd/util/panics"
+	"github.com/Kash-Protocol/kashd/util/profiling"
 
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/infrastructure/os/signal"
+	"github.com/Kash-Protocol/kashd/app/appmessage"
+	"github.com/Kash-Protocol/kashd/infrastructure/os/signal"
 
 	_ "net/http/pprof"
 )
@@ -205,7 +205,7 @@ func main() {
 
 		// Try to split seeder host and port
 		foundIp, foundPort, err := net.SplitHostPort(cfg.Seeder)
-		if (err == nil) {
+		if err == nil {
 			seederIp = foundIp
 			seederPort, err = strconv.Atoi(foundPort)
 			if err != nil {
