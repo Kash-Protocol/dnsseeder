@@ -6,6 +6,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net"
 	"os"
 	"path/filepath"
@@ -268,6 +269,7 @@ func (m *Manager) prunePeers() {
 
 func (m *Manager) deserializePeers() error {
 	filePath := m.peersFile
+	fmt.Println(filePath)
 	_, err := os.Stat(filePath)
 	if os.IsNotExist(err) {
 		return nil
